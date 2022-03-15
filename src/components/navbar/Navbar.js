@@ -5,7 +5,7 @@ import BurgerMenu from 'components/navbar/BurgerMenu';
 
 const Navbar = () => {
   return (
-    <nav>
+    <nav className='max-w-6xl m-auto'>
       <div className='w-full md:w-336 px-4 mx-auto'>
         <div className='w-full flex-col md:flex-row py-4'>
           <div className='flex items-center justify-between flex-col md:flex-row'>

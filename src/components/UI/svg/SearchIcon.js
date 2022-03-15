@@ -1,8 +1,7 @@
-const Down = (props) => {
-  const classes = `${props.extraClasses} h-4 w-4 ml-1`;
+const SearchIcon = () => {
   return (
     <svg
-      className={classes}
+      className='w-6 text-gray-400'
       fill='none'
       viewBox='0 0 24 24'
       stroke='currentColor'
@@ -11,10 +10,10 @@ const Down = (props) => {
         strokeLinecap='round'
         strokeLinejoin='round'
         strokeWidth='2'
-        d='M19 9l-7 7-7-7'
+        d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
       />
     </svg>
   );
 };
 
-export default Down;
+export default SearchIcon;

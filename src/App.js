@@ -1,11 +1,13 @@
+import Dashboard from 'components/dashboard/Dashboard';
 import Navbar from 'components/navbar/Navbar';
 
 const App = () => {
   return (
-    <div className='border-b border-gray-100'>
-      <div className='max-w-6xl m-auto '>
+    <div className=''>
+      <div className='border-b border-gray-100'>
         <Navbar />
       </div>
+      <Dashboard />
     </div>
   );
 };
