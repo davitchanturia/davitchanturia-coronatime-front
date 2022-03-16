@@ -3,7 +3,7 @@ const Card = (props) => {
   const textClasses = `${props.color} text-2xl sm:text-4xl font-black mt-5`;
 
   const updatedClasses =
-    props.text === 'New cases'
+    props.bgColor === 'bg-newCases'
       ? `${cardClasses} sm:col-span-3 md:col-span-1 card`
       : `${cardClasses}`;
 

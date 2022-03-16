@@ -1,3 +1,5 @@
+import { Trans } from 'react-i18next';
+
 import AuthFoto from 'components/UI/authFoto';
 import Button from 'components/UI/form/Button';
 import Input from 'components/UI/form/Input';
@@ -14,28 +16,30 @@ const Login = () => {
             <div className='  m-auto   py-10'>
               <Logo />
               <div class='mt-14'>
-                <h1 class='font-bold text-2xl text-left'>Welcome back</h1>
+                <h1 class='font-bold text-2xl text-left'>
+                  <Trans i18nKey='welcomeLogin' />
+                </h1>
                 <p class='text-sm sm:text-xl text-grey mt-4'>
-                  Please enter your details
+                  <Trans i18nKey='textLogin' />
                 </p>
               </div>
 
               <form>
-                <Input
-                  label='username'
-                  placeholder='Enter unique username or email'
-                />
-                <Input label='Password' placeholder='Fill in password' />
+                <Input label='username' placeholder='usernamePlaceholder' />
+
+                <Input label='password' placeholder='passwordPlaceholder' />
                 <div class='flex flex-col sm:flex-row sm:justify-between mt-7'>
                   <Remember />
                   <a href='/' class='text-forgotPas mt-2 sm:mt-0'>
-                    forgot password?
+                    <Trans i18nKey='forgotPassword' />
                   </a>
                 </div>
-                <Button>Login</Button>
+                <Button>
+                  <Trans i18nKey='login' />
+                </Button>
                 <HelperNavigator
-                  text='Don’t have and account?'
-                  action='Sign up for free'
+                  text={<Trans i18nKey='doNotHaveAccount' />}
+                  action={<Trans i18nKey='signUpFree' />}
                 />
               </form>
             </div>

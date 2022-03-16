@@ -1,3 +1,5 @@
+import { Trans } from 'react-i18next';
+
 import TableHead from 'components/dashboard/byCountry/TableHead';
 import TableRow from 'components/dashboard/byCountry/TableRow';
 
@@ -10,10 +12,10 @@ const Table = () => {
             <table className='text-left w-full'>
               <thead className='bg-gray-50 w-full'>
                 <tr className='flex w-full'>
-                  <TableHead text='Location' />
-                  <TableHead text='New Cases' />
-                  <TableHead text='Deaths' />
-                  <TableHead text='Recovered' />
+                  <TableHead text={<Trans i18nKey='location' />} />
+                  <TableHead text={<Trans i18nKey='newCase' />} />
+                  <TableHead text={<Trans i18nKey='death' />} />
+                  <TableHead text={<Trans i18nKey='recovered' />} />
                 </tr>
               </thead>
               {/**აქ ფიქსირებული heigth მაქვს გაწერილი და შესაცვლელია როცა სერჩში რამე იქნება h-auto უნდა მიენიჭოს */}

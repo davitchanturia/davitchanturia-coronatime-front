@@ -1,0 +1,38 @@
+{
+    "english": "ინგლისური",
+    "georgian": "ქართული",
+    "logout": "გამოსვლა",
+
+    "Worldwidestatistics": "საერთო სტატისტიკა",
+	"Countrystatistics": "ქვეყნების სტატისტიკა",
+    "worldwide": "მსოფლიო",
+    "byCountry": "ქვეყანა",
+    "newCase": "ახალი შემთხვევა",
+    "recovered": "გამოჯანმრთელებული",
+    "death": "გარდაცვლილი",
+    "search": "ძებნა",
+    "location": "მდებარეობა",
+
+    "username": "მომხმარებლის სახელი",
+    "usernamePlaceholder": "შეიყვანეთ მომხმარებლის სახელი",
+    "email": "ელ-ფოსტა",
+    "emailPlaceholder": "შეიყვანეთ ელ-ფოსტა",
+    "password": "პაროლი",
+    "passwordPlaceholder": "შეიყვანეთ პაროლი",
+    "repeatPassword": "გაიმეორეთ პაროლი",
+    "repeatPasswordPlaceholder": "გაიმეორეთ პაროლი",
+    "rememberDevice": "დამახსოვრება",
+
+    "welcomeLogin": "მოგესალმებით!",
+    "textLogin": "შეიყვანეთ მოთხოვნილი ინფორმაცია",
+    "forgotPassword": "დაგავიწყდა პაროლი?",
+    "login": "შესვლა",
+    "doNotHaveAccount": "არ გაქვთ ანგარიში?",
+    "signUpFree": "დარეგისტრირდით აქ",
+
+    "welcomeRegister": "მოგესალმებით კორონათაიმზე",
+    "textRegister": "შეიყვანეთ მოთხოვნილი ინფორმაცია",
+    "register": "რეგისტრაცია",
+    "alreadyHaveAcount": "უკვე გაქვთ ანგარიში?"
+    
+}

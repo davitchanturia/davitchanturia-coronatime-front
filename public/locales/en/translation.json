@@ -1,0 +1,38 @@
+{
+    "english": "English",
+    "georgian": "Georgian",
+    "logout": "Log Out",
+
+    "Worldwidestatistics": "Worldwide Statistics",
+	"Countrystatistics": "Statistics by countries",
+    "worldwide": "Worldwide",
+    "byCountry": "By Country",
+    "newCase": "New cases",
+    "recovered": "Recovered",
+    "death": "Death",
+    "search": "Search",
+    "location": "Location",
+
+    "username": "Username",
+    "usernamePlaceholder": "Enter unique username or email",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Fill in password",
+    "repeatPassword": "Repeat Password",
+    "repeatPasswordPlaceholder": "Repeat Password",
+    "rememberDevice": "Remember this devive",
+
+    "welcomeLogin": "Welcome back",
+    "textLogin": "Please enter your details",
+    "forgotPassword": "forgot passwor?",
+    "login": "Login",
+    "doNotHaveAccount": "Dont have an account?",
+    "signUpFree": "Sign up For Free",
+
+    "welcomeRegister": "Welcome to Coronatime",
+    "textRegister": "Please enter required info to sign up",
+    "register": "Register",
+    "alreadyHaveAcount": "Already have an account?"
+    
+}
