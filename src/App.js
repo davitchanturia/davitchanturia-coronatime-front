@@ -1,13 +1,19 @@
-import Dashboard from 'components/dashboard/Dashboard';
-import Navbar from 'components/navbar/Navbar';
+import { Route, Routes } from 'react-router';
+
+import Login from 'pages/Login';
+import Home from 'pages/Home';
+import Register from 'pages/Register';
+import Verification from 'pages/Verification';
 
 const App = () => {
   return (
-    <div className=''>
-      <div className='border-b border-gray-100'>
-        <Navbar />
-      </div>
-      <Dashboard />
+    <div>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/verfication' element={<Verification />} />
+      </Routes>
     </div>
   );
 };
