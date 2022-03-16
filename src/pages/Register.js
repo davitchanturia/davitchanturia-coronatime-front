@@ -6,23 +6,18 @@ import Input from 'components/UI/form/Input';
 import Remember from 'components/UI/form/Remember';
 import Logo from 'components/UI/Logo';
 import HelperNavigator from '../components/authentication/HelperNavigator';
+import Header from 'components/authentication/Header';
 
 const Register = () => {
   return (
     <div className='max-w-6xl m-auto'>
       <div className='relative w-full'>
         <div className='w-full xl:w-336 px-4 mx-auto'>
-          <div className='w-full lg:w-96'>
+          <div className='w-full sm:w-2/3 lg:w-96 sm:mx-auto lg:mx-0'>
             <div className='  m-auto   py-10'>
               <Logo />
-              <div class='mt-14'>
-                <h1 class='font-bold text-2xl text-left'>
-                  <Trans i18nKey='welcomeRegister' />
-                </h1>
-                <p class='text-sm sm:text-xl text-grey mt-4'>
-                  <Trans i18nKey='textRegister' />
-                </p>
-              </div>
+
+              <Header welcome='welcomeRegister' text='textRegister' />
 
               <form>
                 <Input
