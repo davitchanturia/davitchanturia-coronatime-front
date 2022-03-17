@@ -24,9 +24,9 @@ const Login = () => {
 
                 <Input label='password' placeholder='passwordPlaceholder' />
 
-                <div class='flex flex-col sm:flex-row sm:justify-between mt-7'>
+                <div className='flex flex-col sm:flex-row sm:justify-between mt-7'>
                   <Remember />
-                  <a href='/' class='text-forgotPas mt-2 sm:mt-0'>
+                  <a href='/' className='text-forgotPas mt-2 sm:mt-0'>
                     <Trans i18nKey='forgotPassword' />
                   </a>
                 </div>

@@ -12,7 +12,7 @@ const Search = () => {
         className='w-full rounded-xl bg-white text-gray-400 px-4 py-2 pl-10 outline-none border-none placeholder-gray-200'
       />
 
-      <div class='absolute top-0 flex items-center h-full ml-1'>
+      <div className='absolute top-0 flex items-center h-full ml-1'>
         <SearchIcon />
       </div>
     </div>

@@ -1,4 +1,7 @@
 import { Trans } from 'react-i18next';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router';
+import apiClient from 'api/api';
 
 import AuthFoto from 'components/UI/authFoto';
 import Button from 'components/UI/form/Button';
@@ -9,6 +12,39 @@ import HelperNavigator from '../components/authentication/HelperNavigator';
 import Header from 'components/authentication/Header';
 
 const Register = () => {
+  const {
+    getValues,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const navigate = useNavigate();
+
+  const onSubmitHandler = (data, e) => {
+    e.preventDefault();
+
+    const username = getValues('username');
+    const email = getValues('email');
+    const password = getValues('password');
+    const repeatPassword = getValues('repeatPassword');
+
+    const values = new FormData();
+
+    values.append('username', username);
+    values.append('email', email);
+    values.append('password', password);
+    values.append('repeatPassword', repeatPassword);
+
+    (async () => {
+      try {
+        const response = await apiClient.post('/api/register', values);
+
+        navigate('/message');
+      } catch (error) {}
+    })();
+  };
+
   return (
     <div className='max-w-6xl m-auto'>
       <div className='relative w-full'>
@@ -19,24 +55,46 @@ const Register = () => {
 
               <Header welcome='welcomeRegister' text='textRegister' />
 
-              <form>
+              <form onSubmit={handleSubmit(onSubmitHandler)} method='POST'>
                 <Input
+                  register={register('username', {
+                    required: 'This filed is required',
+                  })}
+                  type='text'
                   label='username'
                   placeholder='Enter unique username or email'
                 />
 
-                <Input label='email' placeholder='emailPlaceholder' />
-
-                <Input label='password' placeholder='passwordPlaceholder' />
+                <Input
+                  register={register('email', {
+                    required: 'This filed is required',
+                  })}
+                  type='email'
+                  label='email'
+                  placeholder='emailPlaceholder'
+                />
 
                 <Input
+                  register={register('password', {
+                    required: 'This filed is required',
+                  })}
+                  type='password'
+                  label='password'
+                  placeholder='passwordPlaceholder'
+                />
+
+                <Input
+                  type='password'
+                  register={register('repeatPassword', {
+                    required: 'This filed is required',
+                  })}
                   label='repeatPassword'
                   placeholder='repeatPasswordPlaceholder'
                 />
 
-                <div class='flex flex-col sm:flex-row sm:justify-between mt-7'>
+                <div className='flex flex-col sm:flex-row sm:justify-between mt-7'>
                   <Remember />
-                  <a href='/' class='text-forgotPas mt-2 sm:mt-0'>
+                  <a href='/' className='text-forgotPas mt-2 sm:mt-0'>
                     <Trans i18nKey='forgotPassword' />
                   </a>
                 </div>
