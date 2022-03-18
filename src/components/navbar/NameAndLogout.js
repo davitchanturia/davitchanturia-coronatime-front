@@ -23,7 +23,6 @@ const NameAndLogout = () => {
         await apiClient.get('sanctum/csrf-cookie');
         const response = await apiClient.post('api/logout');
 
-        console.log(response);
         if (response.status === 200) {
           navigate('/login');
         }

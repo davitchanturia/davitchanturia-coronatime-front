@@ -15,9 +15,11 @@ import Logo from 'components/UI/Logo';
 import HelperNavigator from '../components/authentication/HelperNavigator';
 import Header from 'components/authentication/Header';
 import Spinner from 'components/UI/Spinner';
+import Error from 'components/UI/Error';
 
 const Login = () => {
   const { isLoading, sendAuthRequest } = useAuthCheck();
+  const [error, setError] = useState('');
 
   const navigate = useNavigate();
 
@@ -48,8 +50,18 @@ const Login = () => {
         await apiClient.get('sanctum/csrf-cookie');
         const response = await apiClient.post('/api/login', values);
 
-        navigate('/');
-      } catch (error) {}
+        if (response.status === 204) {
+          navigate('/');
+        }
+        if (response.status === 401) {
+          // setError();
+        }
+      } catch (error) {
+        if (error.response.status === 401) {
+          setError(error.response.data.message);
+        }
+        // console.log(error.response.data.message);
+      }
     })();
   };
 
@@ -107,6 +119,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Error>{error}</Error>
       <AuthFoto />
     </div>
   );

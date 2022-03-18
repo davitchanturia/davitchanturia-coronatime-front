@@ -3,14 +3,13 @@ import { useNavigate } from 'react-router';
 import apiClient from 'api/api';
 
 const useAuthCheck = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const navigate = useNavigate();
 
   const sendAuthRequest = useCallback(async (path) => {
     (async () => {
       try {
-        setIsLoading(true);
         await apiClient.get('sanctum/csrf-cookie');
         const response = await apiClient.get(path);
 
