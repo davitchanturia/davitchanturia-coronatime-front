@@ -66,7 +66,7 @@ const Register = () => {
       <div className='relative w-full'>
         <div className='w-full xl:w-336 px-4 mx-auto'>
           <div className='w-full sm:w-2/3 lg:w-96 sm:mx-auto lg:mx-0'>
-            <div className='  m-auto   py-10'>
+            <div className='m-auto py-10'>
               <Logo />
 
               <Header welcome='welcomeRegister' text='textRegister' />

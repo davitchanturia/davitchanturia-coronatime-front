@@ -1,31 +1,32 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router';
 import apiClient from 'api/api';
 
 const useAuthCheck = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
-  const sendAuthRequest = (path) => {
+  const sendAuthRequest = useCallback(async (path) => {
     (async () => {
       try {
-        // setIsLoading(true);
+        setIsLoading(true);
         await apiClient.get('sanctum/csrf-cookie');
         const response = await apiClient.get(path);
 
+        console.log(response);
+        if (response.data.isLoggedIn === 'false') {
+          navigate('/login');
+        }
+        if (response.data.isLoggedIn === 'true') {
+          navigate('/');
+        }
         setTimeout(() => {
-          if (response.data.isLoggedIn === 'false') {
-            navigate('/login');
-          }
-          if (response.data.isLoggedIn === 'true') {
-            navigate('/home');
-          }
           setIsLoading(false);
         }, 300);
       } catch (error) {}
     })();
-  };
+  }, []);
 
   return {
     sendAuthRequest,

@@ -4,7 +4,7 @@ const Remember = () => {
   return (
     <div>
       <input type='checkbox' name='remember' value='1' />
-      <label className='ml-2' for='remember'>
+      <label className='ml-2' htmlFor='remember'>
         <Trans i18nKey='rememberDevice' />
       </label>
     </div>
