@@ -17,8 +17,6 @@ import Header from 'components/authentication/Header';
 import Spinner from 'components/UI/Spinner';
 
 const Login = () => {
-  // const [isLoadingX, setIsLoadingX] = useState(false);
-
   const { isLoading, sendAuthRequest } = useAuthCheck();
 
   const navigate = useNavigate();
@@ -47,12 +45,10 @@ const Login = () => {
 
     (async () => {
       try {
-        // setIsLoadingX(true);
         await apiClient.get('sanctum/csrf-cookie');
         const response = await apiClient.post('/api/login', values);
 
         navigate('/');
-        // setIsLoadingX(false);
       } catch (error) {}
     })();
   };

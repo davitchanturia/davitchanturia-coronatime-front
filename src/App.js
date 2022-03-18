@@ -6,7 +6,6 @@ import Home from 'pages/Home';
 import Register from 'pages/Register';
 import Verification from 'pages/Verification';
 import EmailConfirmed from 'pages/EmailConfirmed';
-import Spinner from 'components/UI/Spinner';
 
 const App = () => {
   const { t, i18n } = useTranslation();
