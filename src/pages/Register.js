@@ -1,6 +1,7 @@
 import { Trans } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
+import { useState } from 'react';
 import apiClient from 'api/api';
 
 import AuthFoto from 'components/UI/authFoto';
@@ -10,8 +11,11 @@ import Remember from 'components/UI/form/Remember';
 import Logo from 'components/UI/Logo';
 import HelperNavigator from '../components/authentication/HelperNavigator';
 import Header from 'components/authentication/Header';
+import Spinner from 'components/UI/Spinner';
 
 const Register = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const {
     getValues,
     register,
@@ -38,12 +42,19 @@ const Register = () => {
 
     (async () => {
       try {
+        setIsLoading(true);
         const response = await apiClient.post('/api/register', values);
 
         navigate('/message');
+
+        setIsLoading(false);
       } catch (error) {}
     })();
   };
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <div className='max-w-6xl m-auto'>
@@ -106,6 +117,7 @@ const Register = () => {
                 <HelperNavigator
                   text={<Trans i18nKey='alreadyHaveAcount' />}
                   action={<Trans i18nKey='login' />}
+                  path='/login'
                 />
               </form>
             </div>

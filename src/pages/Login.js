@@ -38,6 +38,7 @@ const Login = () => {
                 <HelperNavigator
                   text={<Trans i18nKey='doNotHaveAccount' />}
                   action={<Trans i18nKey='signUpFree' />}
+                  path='/register'
                 />
               </form>
             </div>
