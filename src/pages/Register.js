@@ -1,6 +1,5 @@
 import { Trans } from 'react-i18next';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router';
 import { useState } from 'react';
 import apiClient from 'api/api';
 
@@ -12,9 +11,11 @@ import Logo from 'components/UI/Logo';
 import HelperNavigator from '../components/authentication/HelperNavigator';
 import Header from 'components/authentication/Header';
 import Spinner from 'components/UI/Spinner';
+import EmailSent from '../components/authentication/messages/EmailSent';
 
 const Register = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [messagePage, setMessagePage] = useState('');
 
   const {
     getValues,
@@ -22,8 +23,6 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  const navigate = useNavigate();
 
   const onSubmitHandler = (data, e) => {
     e.preventDefault();
@@ -45,7 +44,9 @@ const Register = () => {
         setIsLoading(true);
         const response = await apiClient.post('/api/register', values);
 
-        navigate('/message');
+        if (response.status === 200) {
+          setMessagePage('sent');
+        }
 
         setIsLoading(false);
       } catch (error) {}
@@ -54,6 +55,10 @@ const Register = () => {
 
   if (isLoading) {
     return <Spinner />;
+  }
+
+  if (messagePage === 'sent') {
+    return <EmailSent />;
   }
 
   return (

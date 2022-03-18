@@ -1,5 +1,4 @@
 import ResetPassword from 'components/authentication/ResetPassword';
-import VerificationMessage from 'components/authentication/VerificationMessage';
 import Logo from 'components/UI/Logo';
 
 const Verification = (props) => {

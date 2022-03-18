@@ -5,7 +5,7 @@ import Login from 'pages/Login';
 import Home from 'pages/Home';
 import Register from 'pages/Register';
 import Verification from 'pages/Verification';
-import Message from 'pages/Message';
+import EmailConfirmed from 'pages/EmailConfirmed';
 
 const App = () => {
   const { t, i18n } = useTranslation();
@@ -17,7 +17,7 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/verfication' element={<Verification />} />
-        <Route path='/message' element={<Message />} />
+        <Route path='/confirmed/:token' element={<EmailConfirmed />} />
       </Routes>
     </div>
   );
