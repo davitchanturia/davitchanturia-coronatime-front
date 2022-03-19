@@ -1,10 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
 import { Trans } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import apiClient from 'api/api';
-import { useEffect } from 'react';
 import useAuthCheck from 'hooks/use-authCheck';
 
 import AuthFoto from 'components/UI/authFoto';
@@ -16,6 +15,7 @@ import HelperNavigator from '../components/authentication/HelperNavigator';
 import Header from 'components/authentication/Header';
 import Spinner from 'components/UI/Spinner';
 import Error from 'components/UI/Error';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const { isLoading, sendAuthRequest } = useAuthCheck();
@@ -24,7 +24,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    sendAuthRequest('/api/authenticated');
+    sendAuthRequest('/api/authenticated/login');
   }, [sendAuthRequest]);
 
   const {
@@ -50,17 +50,13 @@ const Login = () => {
         await apiClient.get('sanctum/csrf-cookie');
         const response = await apiClient.post('/api/login', values);
 
-        if (response.status === 204) {
+        if (response.data === 204) {
           navigate('/');
-        }
-        if (response.status === 401) {
-          // setError();
         }
       } catch (error) {
         if (error.response.status === 401) {
           setError(error.response.data.message);
         }
-        // console.log(error.response.data.message);
       }
     })();
   };
@@ -100,9 +96,12 @@ const Login = () => {
 
                 <div className='flex flex-col sm:flex-row sm:justify-between mt-7'>
                   <Remember />
-                  <a href='/' className='text-forgotPas mt-2 sm:mt-0'>
+                  <Link
+                    to='/verfication'
+                    className='text-forgotPas mt-2 sm:mt-0'
+                  >
                     <Trans i18nKey='forgotPassword' />
-                  </a>
+                  </Link>
                 </div>
 
                 <Button>

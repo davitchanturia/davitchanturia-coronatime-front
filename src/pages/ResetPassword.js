@@ -1,9 +1,10 @@
+import VerificationLayout from 'components/authentication/VerificationLayout';
 import Button from 'components/UI/form/Button';
 import Input from 'components/UI/form/Input';
 
 const ResetPassword = () => {
   return (
-    <>
+    <VerificationLayout>
       <h1 className='font-bold text-darkBlack text-2xl text-center'>
         Reset Password
       </h1>
@@ -12,7 +13,7 @@ const ResetPassword = () => {
 
         <Button>Reset your password </Button>
       </form>
-    </>
+    </VerificationLayout>
   );
 };
 

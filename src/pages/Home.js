@@ -9,7 +9,7 @@ const Home = () => {
   const { isLoading, sendAuthRequest } = useAuthCheck();
 
   useEffect(() => {
-    sendAuthRequest('/api/authenticated');
+    sendAuthRequest('/api/authenticated/home');
   }, [sendAuthRequest]);
 
   if (isLoading) {

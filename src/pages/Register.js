@@ -1,6 +1,9 @@
 import { Trans } from 'react-i18next';
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
+import useAuthCheck from 'hooks/use-authCheck';
+
 import apiClient from 'api/api';
 
 import AuthFoto from 'components/UI/authFoto';
@@ -14,8 +17,14 @@ import Spinner from 'components/UI/Spinner';
 import EmailSent from '../components/authentication/messages/EmailSent';
 
 const Register = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   const [messagePage, setMessagePage] = useState('');
+
+  const { isLoading, sendAuthRequest } = useAuthCheck();
+
+  useEffect(() => {
+    sendAuthRequest('/api/authenticated/register');
+  }, [sendAuthRequest]);
 
   const {
     getValues,
@@ -41,14 +50,14 @@ const Register = () => {
 
     (async () => {
       try {
-        setIsLoading(true);
+        // setIsLoading(true);
         const response = await apiClient.post('/api/register', values);
 
         if (response.status === 200) {
           setMessagePage('sent');
         }
 
-        setIsLoading(false);
+        // setIsLoading(false);
       } catch (error) {}
     })();
   };
@@ -110,9 +119,6 @@ const Register = () => {
 
                 <div className='flex flex-col sm:flex-row sm:justify-between mt-7'>
                   <Remember />
-                  <a href='/' className='text-forgotPas mt-2 sm:mt-0'>
-                    <Trans i18nKey='forgotPassword' />
-                  </a>
                 </div>
 
                 <Button>

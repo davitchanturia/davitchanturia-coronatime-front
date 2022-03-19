@@ -15,7 +15,15 @@ const useAuthCheck = () => {
 
         console.log(response);
         if (response.data.isLoggedIn === 'false') {
-          navigate('/login');
+          if (response.data.page === 'register') {
+            navigate('/register');
+          }
+          if (response.data.page === 'login') {
+            navigate('/login');
+          }
+          if (response.data.page === 'home') {
+            navigate('/login');
+          }
         }
         if (response.data.isLoggedIn === 'true') {
           navigate('/');
