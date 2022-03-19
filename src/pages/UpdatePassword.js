@@ -53,6 +53,7 @@ const UpdatePassword = () => {
   if (messagePage === 'confirmed') {
     return <PasswordChanged />;
   }
+
   return (
     <VerificationLayout>
       <h1 className='font-bold text-darkBlack text-2xl text-center'>

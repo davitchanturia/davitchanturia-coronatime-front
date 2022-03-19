@@ -40,6 +40,7 @@ const Register = () => {
     const email = getValues('email');
     const password = getValues('password');
     const repeatPassword = getValues('repeatPassword');
+    const remember = getValues('remember');
 
     const values = new FormData();
 
@@ -47,6 +48,7 @@ const Register = () => {
     values.append('email', email);
     values.append('password', password);
     values.append('repeatPassword', repeatPassword);
+    values.append('remember', remember);
 
     (async () => {
       try {
@@ -118,7 +120,7 @@ const Register = () => {
                 />
 
                 <div className='flex flex-col sm:flex-row sm:justify-between mt-7'>
-                  <Remember />
+                  <Remember register={register('remember')} />
                 </div>
 
                 <Button>

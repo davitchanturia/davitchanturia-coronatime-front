@@ -39,11 +39,13 @@ const Login = () => {
 
     const username = getValues('username');
     const password = getValues('password');
+    const remember = getValues('remember');
 
     const values = new FormData();
 
     values.append('username', username);
     values.append('password', password);
+    values.append('remember', remember);
 
     (async () => {
       try {
@@ -95,7 +97,7 @@ const Login = () => {
                 />
 
                 <div className='flex flex-col sm:flex-row sm:justify-between mt-7'>
-                  <Remember />
+                  <Remember register={register('remember')} />
                   <Link
                     to='/reset-password'
                     className='text-forgotPas mt-2 sm:mt-0'
