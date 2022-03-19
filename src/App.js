@@ -6,6 +6,7 @@ import Home from 'pages/Home';
 import Register from 'pages/Register';
 import EmailConfirmed from 'pages/EmailConfirmed';
 import ResetPassword from 'pages/ResetPassword';
+import UpdatePassword from 'pages/UpdatePassword';
 
 const App = () => {
   const { t, i18n } = useTranslation();
@@ -16,8 +17,9 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/reset-password' element={<ResetPassword />} />
         <Route path='/confirmed/:token' element={<EmailConfirmed />} />
+        <Route path='/reset-password' element={<ResetPassword />} />
+        <Route path='/update-password/:token' element={<UpdatePassword />} />
       </Routes>
     </div>
   );

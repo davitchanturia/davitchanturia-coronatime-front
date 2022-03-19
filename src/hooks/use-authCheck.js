@@ -24,6 +24,9 @@ const useAuthCheck = () => {
           if (response.data.page === 'home') {
             navigate('/login');
           }
+          if (response.data.page === 'reset-password') {
+            navigate('/reset-password');
+          }
         }
         if (response.data.isLoggedIn === 'true') {
           navigate('/');

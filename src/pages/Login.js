@@ -97,7 +97,7 @@ const Login = () => {
                 <div className='flex flex-col sm:flex-row sm:justify-between mt-7'>
                   <Remember />
                   <Link
-                    to='/verfication'
+                    to='/reset-password'
                     className='text-forgotPas mt-2 sm:mt-0'
                   >
                     <Trans i18nKey='forgotPassword' />
