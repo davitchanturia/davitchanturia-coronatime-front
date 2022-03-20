@@ -6,6 +6,9 @@ import { useForm } from 'react-hook-form';
 import apiClient from 'api/api';
 import useAuthCheck from 'hooks/use-authCheck';
 
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
 import AuthFoto from 'components/UI/authFoto';
 import Button from 'components/UI/form/Button';
 import Input from 'components/UI/form/Input';
@@ -21,18 +24,28 @@ const Login = () => {
   const { isLoading, sendAuthRequest } = useAuthCheck();
   const [error, setError] = useState('');
 
+  const [usernameInput, setUsernameInput] = useState('');
+  const [passwordInput, setPasswordInput] = useState('');
+
   const navigate = useNavigate();
 
   useEffect(() => {
     sendAuthRequest('/api/authenticated/login');
   }, [sendAuthRequest]);
 
+  const schema = yup.object({
+    username: yup.string().required().min(3),
+    password: yup.string().required(),
+  });
+
   const {
     getValues,
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const onSubmitHandler = (data, e) => {
     e.preventDefault();
@@ -47,20 +60,22 @@ const Login = () => {
     values.append('password', password);
     values.append('remember', remember);
 
-    (async () => {
-      try {
-        await apiClient.get('sanctum/csrf-cookie');
-        const response = await apiClient.post('/api/login', values);
+    if (username && password && username.length > 2) {
+      (async () => {
+        try {
+          await apiClient.get('sanctum/csrf-cookie');
+          const response = await apiClient.post('/api/login', values);
 
-        if (response.data === 204) {
-          navigate('/');
+          if (response.data === 204) {
+            navigate('/');
+          }
+        } catch (error) {
+          if (error.response.status === 401) {
+            setError(error.response.data.message);
+          }
         }
-      } catch (error) {
-        if (error.response.status === 401) {
-          setError(error.response.data.message);
-        }
-      }
-    })();
+      })();
+    }
   };
 
   if (isLoading) {
@@ -80,21 +95,27 @@ const Login = () => {
               <form onSubmit={handleSubmit(onSubmitHandler)}>
                 <Input
                   register={register('username', {
-                    required: 'This filed is required',
+                    onChange: (e) => setUsernameInput(e.target.value),
                   })}
                   label='username'
                   placeholder='usernamePlaceholder'
                   type='text'
+                  errorStatus={errors.username}
+                  val={usernameInput}
                 />
+                <p className='text-red-600 h-2'>{errors.username?.message}</p>
 
                 <Input
                   register={register('password', {
-                    required: 'This filed is required',
+                    onChange: (e) => setPasswordInput(e.target.value),
                   })}
                   label='password'
                   placeholder='passwordPlaceholder'
                   type='password'
+                  errorStatus={errors.password}
+                  val={passwordInput}
                 />
+                <p className='text-red-600 h-2'>{errors.password?.message}</p>
 
                 <div className='flex flex-col sm:flex-row sm:justify-between mt-7'>
                   <Remember register={register('remember')} />

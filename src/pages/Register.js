@@ -2,8 +2,11 @@ import { Trans } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import useAuthCheck from 'hooks/use-authCheck';
 
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
+import useAuthCheck from 'hooks/use-authCheck';
 import apiClient from 'api/api';
 
 import AuthFoto from 'components/UI/authFoto';
@@ -20,18 +23,34 @@ const Register = () => {
   // const [isLoading, setIsLoading] = useState(false);
   const [messagePage, setMessagePage] = useState('');
 
+  const [usernameInput, setUsernameInput] = useState('');
+  const [passwordInput, setPasswordInput] = useState('');
+  const [emailInput, setEmailInput] = useState('');
+  const [repeatPasswordInput, setRepeatPasswordInput] = useState('');
+
   const { isLoading, sendAuthRequest } = useAuthCheck();
 
   useEffect(() => {
     sendAuthRequest('/api/authenticated/register');
   }, [sendAuthRequest]);
 
+  const schema = yup.object({
+    username: yup.string().required().min(3),
+    email: yup.string().required().min(3),
+    password: yup.string().required().min(3),
+    repeatPassword: yup
+      .string()
+      .oneOf([yup.ref('password'), null], 'Passwords must match'),
+  });
+
   const {
     getValues,
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const onSubmitHandler = (data, e) => {
     e.preventDefault();
@@ -50,18 +69,29 @@ const Register = () => {
     values.append('repeatPassword', repeatPassword);
     values.append('remember', remember);
 
-    (async () => {
-      try {
-        // setIsLoading(true);
-        const response = await apiClient.post('/api/register', values);
+    if (
+      username &&
+      username.length > 2 &&
+      password &&
+      password.length > 2 &&
+      email &&
+      email.length > 2 &&
+      repeatPassword &&
+      repeatPassword === password
+    ) {
+      (async () => {
+        try {
+          // setIsLoading(true);
+          const response = await apiClient.post('/api/register', values);
 
-        if (response.status === 200) {
-          setMessagePage('sent');
-        }
+          if (response.status === 200) {
+            setMessagePage('sent');
+          }
 
-        // setIsLoading(false);
-      } catch (error) {}
-    })();
+          // setIsLoading(false);
+        } catch (error) {}
+      })();
+    }
   };
 
   if (isLoading) {
@@ -85,39 +115,53 @@ const Register = () => {
               <form onSubmit={handleSubmit(onSubmitHandler)} method='POST'>
                 <Input
                   register={register('username', {
-                    required: 'This filed is required',
+                    onChange: (e) => setUsernameInput(e.target.value),
                   })}
                   type='text'
                   label='username'
                   placeholder='Enter unique username or email'
+                  errorStatus={errors.username}
+                  val={usernameInput}
                 />
+                <p className='text-red-600 h-2'>{errors.username?.message}</p>
 
                 <Input
                   register={register('email', {
-                    required: 'This filed is required',
+                    onChange: (e) => setEmailInput(e.target.value),
                   })}
                   type='email'
                   label='email'
                   placeholder='emailPlaceholder'
+                  errorStatus={errors.email}
+                  val={emailInput}
                 />
+                <p className='text-red-600 h-2'>{errors.email?.message}</p>
 
                 <Input
                   register={register('password', {
-                    required: 'This filed is required',
+                    onChange: (e) => setPasswordInput(e.target.value),
                   })}
                   type='password'
                   label='password'
                   placeholder='passwordPlaceholder'
+                  errorStatus={errors.password}
+                  val={passwordInput}
                 />
+                <p className='text-red-600 h-2'>{errors.password?.message}</p>
 
                 <Input
                   type='password'
                   register={register('repeatPassword', {
-                    required: 'This filed is required',
+                    onChange: (e) => setRepeatPasswordInput(e.target.value),
                   })}
                   label='repeatPassword'
                   placeholder='repeatPasswordPlaceholder'
+                  errorStatus={errors.repeatPassword}
+                  val={repeatPasswordInput}
                 />
+                <p className='text-red-600 h-2'>
+                  {errors.repeatPassword?.message}
+                </p>
 
                 <div className='flex flex-col sm:flex-row sm:justify-between mt-7'>
                   <Remember register={register('remember')} />
