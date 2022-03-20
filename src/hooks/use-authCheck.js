@@ -1,9 +1,13 @@
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router';
 import apiClient from 'api/api';
+import { authActions } from 'store/auth';
+import { useDispatch } from 'react-redux';
 
 const useAuthCheck = () => {
   const [isLoading, setIsLoading] = useState(true);
+
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
@@ -29,6 +33,7 @@ const useAuthCheck = () => {
           }
         }
         if (response.data.isLoggedIn === 'true') {
+          dispatch(authActions.setAuthName(response.data.user.username));
           navigate('/');
         }
         setTimeout(() => {
