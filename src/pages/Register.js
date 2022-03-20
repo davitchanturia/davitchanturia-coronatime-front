@@ -1,13 +1,12 @@
 import { Trans } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import useAuthCheck from 'hooks/use-authCheck';
-import apiClient from 'api/api';
+import useSendData from 'hooks/use-sendData';
 
 import AuthFoto from 'components/UI/authFoto';
 import Button from 'components/UI/form/Button';
@@ -21,15 +20,13 @@ import EmailSent from '../components/authentication/messages/EmailSent';
 import Error from 'components/UI/Error';
 
 const Register = () => {
-  const [error, setError] = useState('');
-  const [messagePage, setMessagePage] = useState('');
-
   const [usernameInput, setUsernameInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
   const [emailInput, setEmailInput] = useState('');
   const [repeatPasswordInput, setRepeatPasswordInput] = useState('');
 
   const { isLoading, sendAuthRequest } = useAuthCheck();
+  const { messagePage, error, sendFormData } = useSendData('register');
 
   useEffect(() => {
     sendAuthRequest('/api/authenticated/register');
@@ -80,19 +77,7 @@ const Register = () => {
       email.length > 2 &&
       password === repeatPassword
     ) {
-      (async () => {
-        try {
-          const response = await apiClient.post('/api/register', values);
-
-          if (response.status === 200) {
-            setMessagePage('sent');
-          }
-        } catch (error) {
-          if (error.response.status === 422) {
-            setError(error.response.data.message);
-          }
-        }
-      })();
+      sendFormData('/api/register', values);
     }
   };
 

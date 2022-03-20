@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router';
-
 import { Trans } from 'react-i18next';
 import { useForm } from 'react-hook-form';
-import apiClient from 'api/api';
+import { Link } from 'react-router-dom';
 import useAuthCheck from 'hooks/use-authCheck';
+import useSendData from 'hooks/use-sendData';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -18,16 +17,13 @@ import HelperNavigator from '../components/authentication/HelperNavigator';
 import Header from 'components/authentication/Header';
 import Spinner from 'components/UI/Spinner';
 import Error from 'components/UI/Error';
-import { Link } from 'react-router-dom';
 
 const Login = () => {
-  const { isLoading, sendAuthRequest } = useAuthCheck();
-  const [error, setError] = useState('');
-
   const [usernameInput, setUsernameInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
 
-  const navigate = useNavigate();
+  const { isLoading, sendAuthRequest } = useAuthCheck();
+  const { error, sendFormData } = useSendData('login');
 
   useEffect(() => {
     sendAuthRequest('/api/authenticated/login');
@@ -61,20 +57,7 @@ const Login = () => {
     values.append('remember', remember);
 
     if (username && password && username.length > 2) {
-      (async () => {
-        try {
-          await apiClient.get('sanctum/csrf-cookie');
-          const response = await apiClient.post('/api/login', values);
-
-          if (response.data === 204) {
-            navigate('/');
-          }
-        } catch (error) {
-          if (error.response.status === 401) {
-            setError(error.response.data.message);
-          }
-        }
-      })();
+      sendFormData('/api/login', values);
     }
   };
 

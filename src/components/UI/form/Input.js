@@ -6,7 +6,6 @@ const Input = (props) => {
   const inputDivClasses =
     'w-full sm:min-w-96 block relative border rounded-md border-gray-200 py-2 px-3 mt-2';
 
-  console.log(props.errorStatus);
   const classes = props.errorStatus
     ? `border-red-600 ${inputDivClasses}`
     : props.val.length > 0 && !props.errorStatus
