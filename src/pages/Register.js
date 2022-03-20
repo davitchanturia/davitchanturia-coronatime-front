@@ -18,9 +18,10 @@ import HelperNavigator from '../components/authentication/HelperNavigator';
 import Header from 'components/authentication/Header';
 import Spinner from 'components/UI/Spinner';
 import EmailSent from '../components/authentication/messages/EmailSent';
+import Error from 'components/UI/Error';
 
 const Register = () => {
-  // const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
   const [messagePage, setMessagePage] = useState('');
 
   const [usernameInput, setUsernameInput] = useState('');
@@ -36,10 +37,11 @@ const Register = () => {
 
   const schema = yup.object({
     username: yup.string().required().min(3),
-    email: yup.string().required().min(3),
+    email: yup.string().required().min(3).email(),
     password: yup.string().required().min(3),
     repeatPassword: yup
       .string()
+      .required()
       .oneOf([yup.ref('password'), null], 'Passwords must match'),
   });
 
@@ -76,20 +78,20 @@ const Register = () => {
       password.length > 2 &&
       email &&
       email.length > 2 &&
-      repeatPassword &&
-      repeatPassword === password
+      password === repeatPassword
     ) {
       (async () => {
         try {
-          // setIsLoading(true);
           const response = await apiClient.post('/api/register', values);
 
           if (response.status === 200) {
             setMessagePage('sent');
           }
-
-          // setIsLoading(false);
-        } catch (error) {}
+        } catch (error) {
+          if (error.response.status === 422) {
+            setError(error.response.data.message);
+          }
+        }
       })();
     }
   };
@@ -181,6 +183,8 @@ const Register = () => {
           </div>
         </div>
       </div>
+      <Error>{error}</Error>
+
       <AuthFoto />
     </div>
   );
