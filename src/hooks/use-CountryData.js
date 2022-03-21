@@ -10,10 +10,13 @@ const UseCountryData = () => {
 
   const getCountriesData = useCallback(async (path) => {
     try {
+      await apiClient.get('sanctum/csrf-cookie');
       const response = await apiClient.get(path);
       dispatch(dataActions.setCountryStats(response.data.countries));
       dispatch(dataActions.setWorldStats(response.data.worldStats));
-    } catch (error) {}
+    } catch (error) {
+      setError(error.response.message);
+    }
   }, []);
 
   return { getCountriesData, error };
