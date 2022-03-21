@@ -1,11 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Trans } from 'react-i18next';
+import UseCountryData from 'hooks/use-CountryData';
+
 import Tab from 'components/dashboard/Tab';
 import Worldwide from 'components/dashboard/worldwide/Worldwide';
 import ByCountry from 'components/dashboard/byCountry/ByCountry';
-import { Trans } from 'react-i18next';
 
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState('Worldwide');
+
+  const { getCountriesData, error } = UseCountryData();
+
+  useEffect(() => {
+    getCountriesData('api/data');
+  }, []);
 
   const activeTabHandler = (active) => {
     setActiveSection(active);
