@@ -4,7 +4,7 @@ import TableHead from 'components/dashboard/byCountry/TableHead';
 import TableRow from 'components/dashboard/byCountry/TableRow';
 import i18n from 'i18n/i18n';
 
-const Table = () => {
+const Table = (props) => {
   const countryStats = useSelector((state) => state.data.countryStats);
 
   const body = countryStats.map((country) => (
@@ -22,10 +22,10 @@ const Table = () => {
       <table className='text-left w-full'>
         <thead className='bg-gray-50 w-full'>
           <tr className='flex w-full'>
-            <TableHead text={<Trans i18nKey='location' />} />
-            <TableHead text={<Trans i18nKey='newCase' />} />
-            <TableHead text={<Trans i18nKey='death' />} />
-            <TableHead text={<Trans i18nKey='recovered' />} />
+            <TableHead text='location' column='name' />
+            <TableHead text='newCase' column='confirmed' />
+            <TableHead text='death' column='deaths' />
+            <TableHead text='recovered' column='recovered' />
           </tr>
         </thead>
         {/**აქ ფიქსირებული heigth მაქვს გაწერილი და შესაცვლელია როცა სერჩში რამე იქნება h-auto უნდა მიენიჭოს */}

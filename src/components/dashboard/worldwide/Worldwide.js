@@ -10,7 +10,7 @@ const Worldwide = () => {
       <Card
         imagePath='assets/newCases.png'
         text={<Trans i18nKey='newCase' />}
-        amount={worldStats.newCases}
+        amount={worldStats.confirmed}
         bgColor='bg-newCases'
         color='text-newCasesNum'
       />
@@ -24,7 +24,7 @@ const Worldwide = () => {
       <Card
         imagePath='assets/death.png'
         text={<Trans i18nKey='death' />}
-        amount={worldStats.death}
+        amount={worldStats.deaths}
         bgColor='bg-death'
         color='text-deathNum'
       />

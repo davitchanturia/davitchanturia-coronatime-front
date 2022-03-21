@@ -4,24 +4,20 @@ import { dataActions } from 'store/data';
 import SearchIcon from 'components/UI/svg/SearchIcon';
 import apiClient from 'api/api';
 
-const Search = () => {
+const Search = (props) => {
   const { t, i18n } = useTranslation();
 
   const dispatch = useDispatch();
 
   const searchHandler = (e) => {
-    // if (e.target.value.length > 1) {
     (async () => {
       try {
         const response = await apiClient.get(
           `api/search?search=${e.target.value}&locale=${i18n.language}`
         );
         dispatch(dataActions.setCountryStats(response.data.data));
-
-        console.log(response.data.data);
       } catch (error) {}
     })();
-    // }
   };
 
   return (
