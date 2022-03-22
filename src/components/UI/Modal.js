@@ -28,7 +28,7 @@ const Modal = (props) => {
         <div className='relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6'>
           <div className='hidden sm:block absolute top-0 right-0 pt-4 pr-4'>
             <button
-              onClick={props.onClose}
+              onClick={props.onCancel}
               type='button'
               className='bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
             >
@@ -53,7 +53,7 @@ const Modal = (props) => {
               type='submit'
               className='w-full capitalize inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-800 text-base font-medium text-white hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-offset-2  sm:ml-3 sm:w-auto sm:text-sm'
             >
-              confirm
+              log out
             </button>
             <button
               onClick={props.onCancel}
