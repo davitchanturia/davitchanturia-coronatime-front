@@ -1,12 +1,13 @@
-import Down from 'components/UI/svg/Down';
 import { useState } from 'react';
-import i18n from 'i18next';
-import { Trans } from 'react-i18next';
-
+import { useTranslation } from 'react-i18next';
+import Down from 'components/UI/svg/Down';
 import DropdownItem from './DropdownItem';
+import languages from 'i18n/languages';
 
 const LanguageDropdown = () => {
   const [open, setOpen] = useState(false);
+
+  const { t, i18n } = useTranslation();
 
   const dropdownChangeHandler = () => {
     setOpen(!open);
@@ -17,23 +18,42 @@ const LanguageDropdown = () => {
     setOpen(false);
   };
 
+  const filterActiveLang = (lang) => {
+    if (lang.id === i18n.language) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const filterInactiveLang = (lang) => {
+    if (lang.id !== i18n.language) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const activeLanguage = languages.filter(filterActiveLang);
+  const inactiveLanguage = languages.filter(filterInactiveLang);
+
   return (
     <div className='relative'>
       <button
         onClick={dropdownChangeHandler}
         className='flex justify-center items-center capitalize'
       >
-        <Trans i18nKey='english'>english</Trans>
+        {t(activeLanguage[0].text)}
         <Down />
       </button>
 
       {open && (
-        <div className='w-24 flex flex-col absolute -bottom-10 right-0 border border-gray-200 bg-gray-300 mt-1'>
-          <DropdownItem onChnageLanguage={languageChangeHandler} lang='en'>
-            <Trans i18nKey='english'>english</Trans>
-          </DropdownItem>
-          <DropdownItem onChnageLanguage={languageChangeHandler} lang='ka'>
-            <Trans i18nKey='georgian'>georgian</Trans>
+        <div className='w-24 flex flex-col absolute -bottom-5 right-0 border border-gray-200 bg-gray-300 mt-1'>
+          <DropdownItem
+            onChnageLanguage={languageChangeHandler}
+            lang={inactiveLanguage[0].id}
+          >
+            {t(inactiveLanguage[0].text)}
           </DropdownItem>
         </div>
       )}
