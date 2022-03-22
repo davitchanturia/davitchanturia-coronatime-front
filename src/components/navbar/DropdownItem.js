@@ -7,7 +7,7 @@ const DropdownItem = (props) => {
     <>
       <button
         onClick={changeLanguage}
-        className='capitalize text-center hover:bg-blue-600 hover:text-white cursor-pointer'
+        className='capitalize text-center hover:text-white cursor-pointer'
       >
         {props.children}
       </button>

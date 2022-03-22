@@ -48,7 +48,7 @@ const LanguageDropdown = () => {
       </button>
 
       {open && (
-        <div className='w-24 flex flex-col absolute -bottom-5 right-0 border border-gray-200 bg-gray-300 mt-1'>
+        <div className='w-auto px-4 flex flex-col absolute -bottom-7 right-1 border border-gray-200 bg-gray-300 hover:bg-blue-600 mt-1'>
           <DropdownItem
             onChnageLanguage={languageChangeHandler}
             lang={inactiveLanguage[0].id}

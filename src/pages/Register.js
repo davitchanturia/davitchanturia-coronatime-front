@@ -18,6 +18,7 @@ import Header from 'components/authentication/Header';
 import Spinner from 'components/UI/Spinner';
 import EmailSent from '../components/authentication/messages/EmailSent';
 import Error from 'components/UI/Error';
+import LanguageDropdown from 'components/navbar/LanguageDropdown';
 
 const Register = () => {
   const [usernameInput, setUsernameInput] = useState('');
@@ -95,7 +96,10 @@ const Register = () => {
         <div className='w-full xl:w-336 px-4 mx-auto'>
           <div className='w-full sm:w-2/3 lg:w-96 sm:mx-auto lg:mx-0'>
             <div className='m-auto py-10'>
-              <Logo />
+              <div className='flex items-center justify-between'>
+                <Logo />
+                <LanguageDropdown />
+              </div>
 
               <Header welcome='welcomeRegister' text='textRegister' />
 
