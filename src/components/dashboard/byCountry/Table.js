@@ -17,6 +17,10 @@ const Table = (props) => {
     />
   ));
 
+  const tbodyClasses = props.searchValue
+    ? 'bg-white divide-y divide-gray-200 h-auto flex flex-col items-center justify-between overflow-y-scroll w-full'
+    : 'bg-white divide-y divide-gray-200 max-h-128 flex flex-col items-center justify-between overflow-y-scroll w-full';
+
   const table = (
     <div className='shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
       <table className='text-left w-full'>
@@ -28,10 +32,7 @@ const Table = (props) => {
             <TableHead text='recovered' column='recovered' />
           </tr>
         </thead>
-        {/**აქ ფიქსირებული heigth მაქვს გაწერილი და შესაცვლელია როცა სერჩში რამე იქნება h-auto უნდა მიენიჭოს */}
-        <tbody className='bg-white divide-y divide-gray-200 h-128 flex flex-col items-center justify-between overflow-y-scroll w-full'>
-          {body}
-        </tbody>
+        <tbody className={tbodyClasses}>{body}</tbody>
       </table>
     </div>
   );

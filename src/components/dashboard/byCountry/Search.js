@@ -10,6 +10,7 @@ const Search = (props) => {
   const dispatch = useDispatch();
 
   const searchHandler = (e) => {
+    props.onSearch(e.target.value);
     (async () => {
       try {
         const response = await apiClient.get(
