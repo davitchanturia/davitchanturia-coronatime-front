@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Down from 'components/UI/svg/Down';
 import DropdownItem from './DropdownItem';
-import languages from 'i18n/languages';
+import languages from 'languages';
 
 const LanguageDropdown = () => {
   const [open, setOpen] = useState(false);
