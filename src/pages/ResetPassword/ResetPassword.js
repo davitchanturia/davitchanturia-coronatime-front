@@ -10,7 +10,7 @@ import VerificationLayout from 'components/authentication/VerificationLayout';
 import Button from 'components/UI/form/Button';
 import Input from 'components/UI/form/Input';
 import Spinner from 'components/UI/Spinner';
-import EmailSent from 'components/authentication/messages/EmailSent';
+import EmailSent from 'components/authentication/EmailSent';
 import Error from 'components/UI/Error';
 
 const ResetPassword = () => {

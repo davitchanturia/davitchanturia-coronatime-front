@@ -1,6 +1,6 @@
 import { Trans } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import Card from 'components/dashboard/worldwide/Card';
+import Card from 'pages/Home/components/Card';
 
 const Worldwide = () => {
   const worldStats = useSelector((state) => state.data.worldStats);

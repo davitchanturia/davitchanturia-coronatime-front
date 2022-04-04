@@ -9,7 +9,7 @@ import * as yup from 'yup';
 import VerificationLayout from 'components/authentication/VerificationLayout';
 import Button from 'components/UI/form/Button';
 import Input from 'components/UI/form/Input';
-import PasswordChanged from 'components/authentication/messages/PasswordChanged';
+import PasswordChanged from 'pages/UpdatePassword/components/PasswordChanged';
 import Error from 'components/UI/Error';
 
 const UpdatePassword = () => {

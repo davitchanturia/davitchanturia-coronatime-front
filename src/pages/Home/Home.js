@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import useAuthCheck from 'hooks/useAuthCheck';
 
-import Dashboard from 'components/dashboard/Dashboard';
-import Navbar from 'components/navbar/Navbar';
+import Dashboard from 'pages/Home/components/Dashboard';
+import Navbar from 'pages/Home/components/Navbar';
 import Spinner from 'components/UI/Spinner';
 
 const Home = () => {

@@ -1,5 +1,5 @@
-import Search from 'components/dashboard/byCountry/Search';
-import Table from 'components/dashboard/byCountry/Table';
+import Search from 'pages/Home/components/Search';
+import Table from 'pages/Home/components/Table';
 
 const ByCountry = () => {
   let table = <Table searchValue={false} />;

@@ -1,7 +1,7 @@
 import Logo from 'components/UI/Logo';
-import LanguageDropdown from 'components/navbar/LanguageDropdown';
-import NameAndLogout from 'components/navbar/NameAndLogout';
-import BurgerMenu from 'components/navbar/BurgerMenu';
+import LanguageDropdown from 'components/LanguageDropdown';
+import NameAndLogout from 'pages/Home/components/NameAndLogout';
+import BurgerMenu from 'pages/Home/components/BurgerMenu';
 
 const Navbar = () => {
   return (

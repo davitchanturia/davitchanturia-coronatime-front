@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
-import TableHead from 'components/dashboard/byCountry/TableHead';
-import TableRow from 'components/dashboard/byCountry/TableRow';
+import TableHead from 'pages/Home/components/TableHead';
+import TableRow from 'pages/Home/components/TableRow';
 import i18n from 'i18n/i18n';
 
 const Table = (props) => {

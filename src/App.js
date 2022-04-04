@@ -1,12 +1,12 @@
 import { Route, Routes } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
-import Login from 'pages/Login';
-import Home from 'pages/Home';
-import Register from 'pages/Register';
-import EmailConfirmed from 'pages/EmailConfirmed';
-import ResetPassword from 'pages/ResetPassword';
-import UpdatePassword from 'pages/UpdatePassword';
+import Login from 'pages/Login/Login';
+import Home from 'pages/Home/Home';
+import Register from 'pages/Register/Register';
+import EmailConfirmed from 'pages/EmailConfirmed/EmailConfirmed';
+import ResetPassword from 'pages/ResetPassword/ResetPassword';
+import UpdatePassword from 'pages/UpdatePassword/UpdatePassword';
 
 const App = () => {
   const { t, i18n } = useTranslation();

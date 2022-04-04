@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { Trans } from 'react-i18next';
 import UseCountryData from 'hooks/useCountryData';
 
-import Tab from 'components/dashboard/Tab';
-import Worldwide from 'components/dashboard/worldwide/Worldwide';
-import ByCountry from 'components/dashboard/byCountry/ByCountry';
+import Tab from 'pages/Home/components/Tab';
+import Worldwide from 'pages/Home/components/Worldwide';
+import ByCountry from 'pages/Home/components/ByCountry';
 
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState('Worldwide');

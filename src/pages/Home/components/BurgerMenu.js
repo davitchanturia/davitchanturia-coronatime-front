@@ -1,5 +1,5 @@
 import BurgerIcon from 'components/UI/svg/BurgerIcon';
-import NameAndLogout from 'components/navbar/NameAndLogout';
+import NameAndLogout from 'pages/Home/components/NameAndLogout';
 import { useState } from 'react';
 
 const BurgerMenu = () => {
