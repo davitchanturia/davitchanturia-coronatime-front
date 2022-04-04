@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import useAuthCheck from 'hooks/use-authCheck';
-import useSendData from 'hooks/use-sendData';
+import useAuthCheck from 'hooks/useAuthCheck';
+import useSendData from 'hooks/useSendData';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';

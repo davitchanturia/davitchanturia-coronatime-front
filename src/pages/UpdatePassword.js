@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
-import useSendData from 'hooks/use-sendData';
+import useSendData from 'hooks/useSendData';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';

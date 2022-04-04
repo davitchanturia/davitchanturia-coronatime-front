@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { Trans } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import useAuthCheck from 'hooks/use-authCheck';
-import useSendData from 'hooks/use-sendData';
+import useAuthCheck from 'hooks/useAuthCheck';
+import useSendData from 'hooks/useSendData';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';

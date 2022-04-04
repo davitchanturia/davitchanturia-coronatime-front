@@ -5,8 +5,8 @@ import { useState, useEffect } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-import useAuthCheck from 'hooks/use-authCheck';
-import useSendData from 'hooks/use-sendData';
+import useAuthCheck from 'hooks/useAuthCheck';
+import useSendData from 'hooks/useSendData';
 
 import AuthFoto from 'components/UI/authFoto';
 import Button from 'components/UI/form/Button';
