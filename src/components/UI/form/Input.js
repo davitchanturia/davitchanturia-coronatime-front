@@ -27,8 +27,4 @@ const Input = (props) => {
   );
 };
 
-// Input.defaultProps = {
-//   errorStatus: '',
-// };
-
 export default Input;

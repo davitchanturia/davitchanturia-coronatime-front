@@ -13,7 +13,7 @@ const Search = (props) => {
     props.onSearch(e.target.value);
     (async () => {
       try {
-        const response = await apiClient.get(
+        const response = await apiClient.post(
           `api/search?search=${e.target.value}&locale=${i18n.language}`
         );
         dispatch(dataActions.setCountryStats(response.data.data));
