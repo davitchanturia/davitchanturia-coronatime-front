@@ -1,5 +1,5 @@
-import authSlice from './auth';
-import dataSlice from './data';
+import authSlice from 'store/auth';
+import dataSlice from 'store/data';
 
 const { configureStore } = require('@reduxjs/toolkit');
 

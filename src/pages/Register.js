@@ -13,10 +13,10 @@ import Button from 'components/UI/form/Button';
 import Input from 'components/UI/form/Input';
 import Remember from 'components/UI/form/Remember';
 import Logo from 'components/UI/Logo';
-import HelperNavigator from '../components/authentication/HelperNavigator';
+import HelperNavigator from 'components/authentication/HelperNavigator';
 import Header from 'components/authentication/Header';
 import Spinner from 'components/UI/Spinner';
-import EmailSent from '../components/authentication/messages/EmailSent';
+import EmailSent from 'components/authentication/messages/EmailSent';
 import Error from 'components/UI/Error';
 import LanguageDropdown from 'components/navbar/LanguageDropdown';
 

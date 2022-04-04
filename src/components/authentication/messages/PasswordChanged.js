@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router';
 import Button from 'components/UI/form/Button';
 import Success from 'components/UI/svg/Success';
-import VerificationLayout from '../VerificationLayout';
+import VerificationLayout from 'components/authentication/VerificationLayout';
 
 const PasswordChanged = () => {
   const navigate = useNavigate();

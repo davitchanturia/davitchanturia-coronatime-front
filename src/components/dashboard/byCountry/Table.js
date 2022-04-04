@@ -1,4 +1,3 @@
-import { Trans } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import TableHead from 'components/dashboard/byCountry/TableHead';
 import TableRow from 'components/dashboard/byCountry/TableRow';
