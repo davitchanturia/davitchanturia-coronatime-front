@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Trans } from 'react-i18next';
-import UseCountryData from 'hooks/useCountryData';
+import UseCountryData from 'pages/Home/hooks/useCountryData';
 
 import Tab from 'pages/Home/components/Tab';
 import Worldwide from 'pages/Home/components/Worldwide';
