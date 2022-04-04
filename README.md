@@ -7,7 +7,7 @@ Welcome to the Coronatime web-aplication, it is a place where you can see latest
 * [Prerequisites](#req)
 * [Packages](#packages)
 * [Getting Started](#gettingStarted)
-* [API](#API)
+* [RESOURCES](#RESOURCES)
 
 #
 <h2 id="req">Prerequisites:</h2>
@@ -17,6 +17,10 @@ Welcome to the Coronatime web-aplication, it is a place where you can see latest
     <tr>
         <td>*</td>
         <td>npm 6.14.15</td>
+    </tr>
+        <tr>
+        <td>*</td>
+        <td>node 14.18.1</td>
     </tr>
 </table>
 
@@ -73,20 +77,28 @@ cd davitchanturia-coronatime-front
 ```sh
 cd davitchanturia-coronatime-front
 ```
+3\. create .env from .env example
+```sh
+cp .env.example .env
+```
+4\. And now you should provide .env file all the necessary environment variables.
+```sh
+REACT_APP_BACKEND_ADDRESS=http://localhost:8000/
+```
 
-3\. Run the command to install all the dependencies
+5\. Run the command to install all the dependencies
 ```sh
 npm install
 ```
-4\. Run the command to start the development server
+6\. Run the command to start the development server
 ```sh
 npm start
 ```
 
-<h2 id="API">API</h2>
+<h2 id="RESOURCES">RESOURCES</h2>
 
 This is application's frontend side. It uses laravel as backend, so to fully understand concerpts of whole application you can visit backend repository and read swagger documentation of this app.
 
   1.Backend Repository - https://github.com/RedberryInternship/davitchanturia-coronatime
 
-  2.Swagger Documentation - 
+  2.Swagger Documentation - https://coronatime.chanturia.redberryinternship.ge/swagger
