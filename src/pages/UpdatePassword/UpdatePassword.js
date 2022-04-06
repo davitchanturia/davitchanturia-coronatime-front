@@ -6,11 +6,11 @@ import useSendData from 'hooks/useSendData';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-import VerificationLayout from 'components/authentication/VerificationLayout';
-import Button from 'components/UI/form/Button';
-import Input from 'components/UI/form/Input';
+import VerificationLayout from 'components/VerificationLayout';
+import Button from 'components/Button';
+import Input from 'components/Input';
 import PasswordChanged from 'pages/UpdatePassword/components/PasswordChanged';
-import Error from 'components/UI/Error';
+import Error from 'components/Error';
 
 const UpdatePassword = () => {
   const [passwordInput, setPasswordInput] = useState('');

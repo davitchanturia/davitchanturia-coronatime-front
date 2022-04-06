@@ -3,7 +3,7 @@ import { Trans } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import apiClient from 'api/api';
-import Modal from 'components/UI/Modal';
+import Modal from 'components/Modal';
 
 const NameAndLogout = () => {
   const [showModal, setShowModal] = useState(false);

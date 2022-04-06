@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { dataActions } from 'store/data';
-import SearchIcon from 'components/UI/svg/SearchIcon';
+import SearchIcon from 'components/SearchIcon';
 import apiClient from 'api/api';
 
 const Search = (props) => {

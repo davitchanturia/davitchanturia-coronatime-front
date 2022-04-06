@@ -1,5 +1,5 @@
-import Warning from 'components/UI/svg/Warning';
-import Xclose from 'components/UI/svg/Xclose';
+import Warning from 'components/Warning';
+import Xclose from 'components/Xclose';
 
 const Modal = (props) => {
   return (

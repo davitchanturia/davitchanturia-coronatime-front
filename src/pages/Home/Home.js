@@ -3,7 +3,7 @@ import useAuthCheck from 'hooks/useAuthCheck';
 
 import Dashboard from 'pages/Home/components/Dashboard';
 import Navbar from 'pages/Home/components/Navbar';
-import Spinner from 'components/UI/Spinner';
+import Spinner from 'components/Spinner';
 
 const Home = () => {
   const { isLoading, sendAuthRequest } = useAuthCheck();

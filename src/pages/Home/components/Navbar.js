@@ -1,4 +1,4 @@
-import Logo from 'components/UI/Logo';
+import Logo from 'components/Logo';
 import LanguageDropdown from 'components/LanguageDropdown';
 import NameAndLogout from 'pages/Home/components/NameAndLogout';
 import BurgerMenu from 'pages/Home/components/BurgerMenu';

@@ -6,12 +6,12 @@ import useSendData from 'hooks/useSendData';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-import VerificationLayout from 'components/authentication/VerificationLayout';
-import Button from 'components/UI/form/Button';
-import Input from 'components/UI/form/Input';
-import Spinner from 'components/UI/Spinner';
-import EmailSent from 'components/authentication/EmailSent';
-import Error from 'components/UI/Error';
+import VerificationLayout from 'components/VerificationLayout';
+import Button from 'components/Button';
+import Input from 'components/Input';
+import Spinner from 'components/Spinner';
+import EmailSent from 'components/EmailSent';
+import Error from 'components/Error';
 
 const ResetPassword = () => {
   const [emailInput, setEmailInput] = useState('');

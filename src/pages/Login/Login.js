@@ -8,15 +8,15 @@ import useSendData from 'hooks/useSendData';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-import AuthFoto from 'components/UI/authFoto';
-import Button from 'components/UI/form/Button';
-import Input from 'components/UI/form/Input';
-import Remember from 'components/UI/form/Remember';
-import Logo from 'components/UI/Logo';
-import HelperNavigator from 'components/authentication/HelperNavigator';
-import Header from 'components/authentication/Header';
-import Spinner from 'components/UI/Spinner';
-import Error from 'components/UI/Error';
+import AuthFoto from 'components/authFoto';
+import Button from 'components/Button';
+import Input from 'components/Input';
+import Remember from 'components/Remember';
+import Logo from 'components/Logo';
+import HelperNavigator from 'components/HelperNavigator';
+import Header from 'components/Header';
+import Spinner from 'components/Spinner';
+import Error from 'components/Error';
 import LanguageDropdown from 'components/LanguageDropdown';
 
 const Login = () => {

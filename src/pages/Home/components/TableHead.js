@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { dataActions } from 'store/data';
-import Down from 'components/UI/svg/Down';
+import Down from 'components/Down';
 
 const TableHead = (props) => {
   const stats = useSelector((state) => state.data.countryStats);

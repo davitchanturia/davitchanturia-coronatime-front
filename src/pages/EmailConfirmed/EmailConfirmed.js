@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router';
 import { useParams } from 'react-router';
 import apiClient from 'api/api';
 
-import VerificationLayout from 'components/authentication/VerificationLayout';
-import Button from 'components/UI/form/Button';
-import Success from 'components/UI/svg/Success';
-import Spinner from 'components/UI/Spinner';
+import VerificationLayout from 'components/VerificationLayout';
+import Button from 'components/Button';
+import Success from 'components/Success';
+import Spinner from 'components/Spinner';
 
 const EmailConfirmed = () => {
   const [isLoading, setIsLoading] = useState(true);

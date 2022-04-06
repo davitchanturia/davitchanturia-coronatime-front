@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Down from 'components/UI/svg/Down';
+import Down from 'components/Down';
 import DropdownItem from 'pages/Home/components/DropdownItem';
 import languages from 'languages';
 

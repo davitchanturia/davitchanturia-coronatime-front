@@ -1,4 +1,4 @@
-import BurgerIcon from 'components/UI/svg/BurgerIcon';
+import BurgerIcon from 'components/BurgerIcon';
 import NameAndLogout from 'pages/Home/components/NameAndLogout';
 import { useState } from 'react';
 

@@ -1,4 +1,4 @@
-import 'components/UI/Error.css';
+import 'components/Error.css';
 
 const styles = 'animation';
 

@@ -1,5 +1,5 @@
-import VerificationLayout from 'components/authentication/VerificationLayout';
-import Success from 'components/UI/svg/Success';
+import VerificationLayout from 'components/VerificationLayout';
+import Success from 'components/Success';
 
 const EmailSent = () => {
   return (
