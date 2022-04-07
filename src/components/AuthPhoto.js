@@ -1,4 +1,4 @@
-const AuthFoto = () => {
+const AuthPhoto = () => {
   return (
     <img
       src='assets/loginFoto.png'
@@ -8,4 +8,4 @@ const AuthFoto = () => {
   );
 };
 
-export default AuthFoto;
+export default AuthPhoto;

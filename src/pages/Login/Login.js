@@ -8,7 +8,7 @@ import useSendData from 'hooks/useSendData';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-import AuthFoto from 'components/authFoto';
+import AuthFoto from 'components/AuthPhoto';
 import Button from 'components/Button';
 import Input from 'components/Input';
 import Remember from 'components/Remember';
